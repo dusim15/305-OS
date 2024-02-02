@@ -63,3 +63,16 @@ pub fn input_str() -> Option<String> {
     };
     Some(input) //return the final input string
 }
+
+
+#[macro_export]
+
+macro_rules! input_str {
+    ($arg:expr) => {{
+        use core::fmt::Write;
+        write!($crate::FRAME_BUFFER_WRITER.lock(), $arg).unwrap();
+   input_str().unwrap()
+
+    }};
+
+}
